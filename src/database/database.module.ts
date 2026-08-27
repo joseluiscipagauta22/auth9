@@ -14,9 +14,9 @@ import config from '../config';
         // Si existe DATABASE_URL (Neon / Render)
         if (url) {
           return {
-            type: 'postgres',
+            type: 'postgres' as const,
             url,
-            synchronize: process.env.NODE_ENV === 'dev',
+            synchronize: false,
             autoLoadEntities: true,
             ssl: {
               rejectUnauthorized: false, // Obligatorio para la conexión SSL de Neon
@@ -26,13 +26,13 @@ import config from '../config';
 
         // Si se usan variables independientes (Postgres local / Docker)
         return {
-          type: 'postgres',
+          type: 'postgres' as const,
           host,
           port,
           username: user,
           password,
           database: name,
-          synchronize: process.env.NODE_ENV === 'dev',
+          synchronize: false,
           autoLoadEntities: true,
         };
       },
