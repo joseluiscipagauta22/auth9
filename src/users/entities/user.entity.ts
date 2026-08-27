@@ -23,6 +23,9 @@ export class User {
   @Column({ type: 'varchar', length: 255, select: false, default: 'tu_valor_por_defecto' })
   test!: string;
 
+  @Column({ type: 'varchar', length: 255, select: false, default: 'tu_valor_por_defecto2' })
+  test2!: string;
+
   @Column({ type: 'boolean', default: true })
   isActive!: boolean;
 
